@@ -1,0 +1,17 @@
+# Ignore large PDF files
+*.pdf
+
+# Python virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Created notebooks (if you don't want to track them)
+created_notebook.ipynb
