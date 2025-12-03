@@ -1,11 +1,13 @@
 # LocalModelRAGPlayground
 
 A **Retrieval-Augmented Generation (RAG)** pipeline for exploring Dungeons & Dragons guidebook content using local LLMs. This project uses a Python notebook to experiment with different local language models via Ollama to test their performance on various RAG tasks.
+This repo is a small companion to my larger Portfolio Manager AI project, which I have built to manage my personal investment portfolio.
+There I focus on cloud-hosted models and enterprise patterns; here I explore what a fully local RAG pipeline looks like using small models (Phi-3 Mini) and an in-memory vector store. I am very excited about the potential for small, local language models and how much of the AI load (especially in Agentic setups) can be passed to them. Ollama is a great tool for this, although I have used Hugging Face's transformer framework for more granular control.
 
 ## Overview
 
 All operations are performed locally:
-- **Local LLM**: Ollama with Phi3 Mini model
+- **Local LLM**: Ollama with Phi3 Mini model. Other models I have tested with are Mistral, Llama and Qwen
 - **Local Vector Store**: DocArrayInMemorySearch
 - **Local Processing**: Embedding and retrieval operations
 
@@ -50,7 +52,7 @@ All operations are performed locally:
 
 ### 10. Debugging Tools (Cells 15-17)
 - **Cell 15**: Inspects what chunks the retriever returns for debugging
-- **Cell 16**: Token counting utility *(currently has an error - references undefined `pages` variable)*
+- **Cell 16**: Token counting utility to analyze chunk sizes and token distribution
 - **Cell 17**: Searches all chunks for specific keywords to verify content is present
 
 ## Summary
@@ -67,14 +69,33 @@ This is a **local RAG system** that:
 - Ollama with Phi3 Mini model
 - Tesseract OCR
 - Poppler
-- Required Python packages (see notebook for details)
+
+### Python Dependencies
+
+Install the required packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+Or manually install:
+- langchain
+- langchain-community
+- langchain-ollama
+- docarray
+- pytesseract
+- pdf2image
+- Pillow
+- tiktoken
+- nbformat
 
 ## Usage
 
-1. Ensure Ollama is running with the Phi3 Mini model
-2. Install Tesseract and Poppler on your system
-3. Place your PDF file in the project directory
-4. Run the notebook cells sequentially
+1. Install Python dependencies: `pip install -r requirements.txt`
+2. Ensure Ollama is running with the Phi3 Mini model
+3. Install Tesseract and Poppler on your system
+4. Place your PDF file in the project directory
+5. Open and run `local_rag_dnd_guidebook.ipynb` cells sequentially
 
 ## Note
 
